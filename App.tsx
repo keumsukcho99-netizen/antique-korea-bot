@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Layout } from './components/Layout';
+import { Layout } from './Layout';
 import { ArtifactUploader } from './components/ArtifactUploader';
 import { ResultDisplay } from './components/ResultDisplay';
 import { StudioMode } from './components/StudioMode';
@@ -11,17 +11,6 @@ const App: React.FC = () => {
   const [result, setResult] = useState<string | null>(null);
   const [currentImages, setCurrentImages] = useState<string[]>([]);
   
-  // API 키 존재 여부 확인
-  const getSafeApiKey = () => {
-    try {
-      return typeof process !== 'undefined' ? process.env?.API_KEY : undefined;
-    } catch (e) {
-      return undefined;
-    }
-  };
-  
-  const hasApiKey = !!getSafeApiKey();
-
   const [siteInfo, setSiteInfo] = useState({
     title: localStorage.getItem('site_title') || "어르신의 고미술 연구소",
     slogan: localStorage.getItem('site_slogan') || "전통의 가치를 디지털의 지혜로 잇습니다.",
@@ -45,10 +34,6 @@ const App: React.FC = () => {
   }, []);
 
   const handleAppraisal = async (data: { images: string[], category: string, modules: string[], notes: string }) => {
-    if (!hasApiKey) {
-      alert("분석 장치의 열쇠(API Key)가 설정되지 않았습니다. 관리 집무실의 안내를 확인하세요.");
-      return;
-    }
     if (isAppraising) return;
     setIsAppraising(true);
     setCurrentImages(data.images);
@@ -71,12 +56,6 @@ const App: React.FC = () => {
 
   return (
     <Layout>
-      {!hasApiKey && activeTab === 'analysis' && (
-        <div className="bg-rose-600 text-white text-center py-2 px-4 text-xs font-black animate-pulse z-[2000] sticky top-0">
-          ⚠️ 주의: 분석 장비의 열쇠(API KEY)가 없습니다. 관리 집무실에서 GitHub 설정을 먼저 확인해 주세요.
-        </div>
-      )}
-
       <div className="max-w-6xl mx-auto px-4 py-8 min-h-screen">
         <div className="flex justify-center mb-12 relative z-50">
           <div className="bg-slate-900 p-1.5 rounded-2xl flex gap-1 shadow-2xl border border-white/10">
@@ -129,11 +108,6 @@ const App: React.FC = () => {
                 </div>
               </div>
             )}
-            
-            <footer className="mt-32 pt-16 border-t border-slate-200 text-center space-y-4 pb-12">
-              <p className="serif-kr text-slate-400 font-bold italic">ⓒ {new Date().getFullYear()} {siteInfo.owner} | {siteInfo.title}</p>
-              <div className="text-slate-300 font-mono text-[9px] tracking-[0.5em] uppercase">Connect verified with {siteInfo.domain}</div>
-            </footer>
           </div>
         ) : (
           <StudioMode siteInfo={siteInfo} setSiteInfo={setSiteInfo} />
@@ -153,5 +127,3 @@ const App: React.FC = () => {
     </Layout>
   );
 };
-
-export default App;
