@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antique Korea - 시간의 적체미</title>
-    <!-- 화면을 예쁘게 꾸며주는 도구들을 불러옵니다 -->
+    <!-- 화면을 아름답게 꾸며주는 도구들 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
         .serif-kr { font-family: 'Noto Serif KR', serif; }
         #root { min-height: 100vh; }
         
-        /* 로딩 중일 때 보여줄 화면입니다 */
+        /* 로딩 화면 디자인 */
         .loading-screen {
             display: flex;
             flex-direction: column;
@@ -34,12 +34,12 @@
 <script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
     "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "vite": "https://esm.sh/vite@^7.3.1"
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
@@ -47,11 +47,11 @@
 <body>
     <div id="root">
         <div class="loading-screen">
-            <h1 class="serif-kr" style="font-size: 1.5rem; color: #1a1a1a;">연구소 문을 여는 중입니다...</h1>
-            <p style="color: #666; margin-top: 10px;">잠시만 기다려 주십시오.</p>
+            <h1 class="serif-kr" style="font-size: 1.8rem; color: #1a1a1a;">연구소의 문을 열고 있습니다...</h1>
+            <p style="color: #666; margin-top: 15px; font-weight: 500;">잠시만 기다려 주십시오. 고산 큐레이터가 마중 나옵니다.</p>
         </div>
     </div>
-    <!-- 우리가 만든 실제 앱(App.tsx)을 실행하는 문입니다 -->
+    <!-- 실제 앱을 실행하는 명령줄 -->
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
