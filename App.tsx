@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
-import Layout from './components/Layout.tsx';
-import ArtifactUploader from './components/ArtifactUploader.tsx';
-import ResultDisplay from './components/ResultDisplay.tsx';
-import Museum from './components/Museum.tsx';
-import Library from './components/Library.tsx';
-import About from './components/About.tsx';
-import DisclaimerModal from './components/DisclaimerModal.tsx';
-import { AppraisalResult, ViewState, AppraisalConfig } from './types.ts';
-import { analyzeArtifact } from './services/geminiService.ts';
+import Layout from './components/Layout';
+import ArtifactUploader from './components/ArtifactUploader';
+import ResultDisplay from './components/ResultDisplay';
+import Museum from './components/Museum';
+import Library from './components/Library';
+import About from './components/About';
+import DisclaimerModal from './components/DisclaimerModal';
+import { AppraisalResult, ViewState, AppraisalConfig } from './types';
+import { analyzeArtifact } from './services/geminiService';
 import { RefreshCcw, Sparkles } from 'lucide-react';
 
 const DAILY_LIMIT = 3;
