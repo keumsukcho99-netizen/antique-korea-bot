@@ -31,12 +31,15 @@
             background-color: #F9F6F0;
         }
 
-        /* 고미술 느낌을 주는 추가 스타일 */
-        .gold-gradient {
-            background: linear-gradient(to right, #D4AF37, #B8860B);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .spin {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #ddd;
+            border-top-color: #D4AF37;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 <script type="importmap">
 {
@@ -55,11 +58,10 @@
     <div id="root">
         <div class="loading-screen">
             <h1 class="serif-kr" style="font-size: 2.2rem; color: #1a1a1a; margin-bottom: 20px;">연구소의 문을 열고 있습니다...</h1>
-            <div style="width: 40px; height: 40px; border: 4px solid #ddd; border-top-color: #D4AF37; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            <div class="spin"></div>
             <p style="color: #666; margin-top: 25px; font-weight: 500;">잠시만 기다려 주십시오. 고산 큐레이터가 마중 나옵니다.</p>
         </div>
     </div>
-    <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
