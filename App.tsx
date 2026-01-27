@@ -76,7 +76,7 @@ const App: React.FC = () => {
   return (
     <Layout>
       <div className="max-w-6xl mx-auto px-4 py-8 min-h-screen">
-        <nav className="flex justify-between items-center mb-16">
+        <nav className="flex justify-between items-center mb-16 relative z-50">
           <button onClick={() => setView('landing')} className="text-slate-400 font-black text-xs uppercase tracking-widest hover:text-slate-900 transition-colors">← Back Home</button>
           <div className="bg-slate-900 p-1 rounded-2xl flex gap-1 shadow-xl">
             <button onClick={() => setView('app')} className={`px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${view === 'app' ? 'bg-amber-500 text-black' : 'text-slate-400'}`}>분석실</button>
