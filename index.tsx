@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 
-console.log("연구소 엔진(index.tsx) 가동 시작...");
+console.log("Antique Korea Engine Starting...");
 
 const container = document.getElementById('root');
 if (container) {
@@ -12,7 +12,13 @@ if (container) {
             <App />
         </React.StrictMode>
     );
-    console.log("연구소 화면 렌더링 완료.");
-} else {
-    console.error("화면을 그릴 root 엘리먼트를 찾지 못했습니다.");
+    
+    // 앱이 로드되면 로딩 화면 제거
+    const loader = document.getElementById('initial-loader');
+    if (loader) {
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.remove(), 500);
+        }, 300);
+    }
 }
