@@ -21,7 +21,6 @@
         .serif-kr { font-family: 'Noto Serif KR', serif; }
         #root { min-height: 100vh; }
         
-        /* 초기 로딩 화면 */
         .loading-screen {
             display: flex;
             flex-direction: column;
@@ -50,8 +49,8 @@
   "imports": {
     "react/": "https://esm.sh/react@^19.2.4/",
     "react": "https://esm.sh/react@^19.2.4",
-    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
     "vite": "https://esm.sh/vite@^7.3.1",
     "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
@@ -66,7 +65,7 @@
             <p style="color: #666; margin-top: 25px; font-weight: 500;">잠시만 기다려 주십시오. 고산 큐레이터가 마중 나옵니다.</p>
         </div>
     </div>
-    <!-- Vite가 이 파일을 읽어서 자바스크립트로 변환해줄 것입니다. -->
+    <!-- Vite 환경에서는 절대경로(/)로 지정하는 것이 표준입니다. -->
     <script type="module" src="/index.tsx"></script>
 </body>
 </html>
