@@ -1,10 +1,9 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { AppraisalResult, AppraisalConfig } from "../types";
+import { AppraisalResult, AppraisalConfig } from "../types.ts";
 
 export async function analyzeArtifact(imageBases: string[], config: AppraisalConfig): Promise<AppraisalResult> {
-  // process.env.API_KEY는 플랫폼에서 자동으로 주입됩니다.
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
-  const model = 'gemini-3-pro-preview';
+  const model = 'gemini-3-flash-preview';
 
   const imageParts = imageBases.map(base64 => ({
     inlineData: { 
