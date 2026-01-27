@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Layout from './components/Layout.tsx';
-import ArtifactUploader from './components/ArtifactUploader.tsx';
-import ResultDisplay from './components/ResultDisplay.tsx';
-import Museum from './components/Museum.tsx';
-import Library from './components/Library.tsx';
-import About from './components/About.tsx';
-import DisclaimerModal from './components/DisclaimerModal.tsx';
-import { AppraisalResult, ViewState, AppraisalConfig } from './types.ts';
-import { analyzeArtifact } from './services/geminiService.ts';
-import { CloudSync, Sparkles } from 'lucide-react';
+import Layout from './components/Layout';
+import ArtifactUploader from './components/ArtifactUploader';
+import ResultDisplay from './components/ResultDisplay';
+import Museum from './components/Museum';
+import Library from './components/Library';
+import About from './components/About';
+import DisclaimerModal from './components/DisclaimerModal';
+import { AppraisalResult, ViewState, AppraisalConfig } from './types';
+import { analyzeArtifact } from './services/geminiService';
+import { RefreshCcw, Sparkles } from 'lucide-react';
 
 const DAILY_LIMIT = 3;
 
@@ -78,7 +78,7 @@ const App: React.FC = () => {
           <div className="space-y-20 py-10 px-6 animate-fadeIn">
             <section className="max-w-4xl mx-auto space-y-8 pt-16">
               <div className="inline-flex items-center gap-2 px-4 py-1 bg-emerald-500/10 rounded-full text-emerald-500 text-[10px] font-black uppercase tracking-widest border border-emerald-500/20">
-                <CloudSync size={12} /> 시스템 아카이브 연결됨
+                <RefreshCcw size={12} className="animate-spin-slow" /> 시스템 아카이브 연결됨
               </div>
               <h2 className="text-5xl md:text-7xl font-serif-kr font-black text-white leading-tight">
                 과거의 숨결을 <br /> <span className="text-gold-gradient">데이터로 정돈합니다.</span>
