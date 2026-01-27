@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -45,12 +45,12 @@
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
     "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
     "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
     "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
@@ -63,7 +63,7 @@
             <p style="color: #666; margin-top: 25px; font-weight: 500;">잠시만 기다려 주십시오. 고산 큐레이터가 마중 나옵니다.</p>
         </div>
     </div>
-    <!-- importmap 없이 직접 index.tsx를 로드하여 MIME 에러 해결 -->
+    <!-- 슬래시(/)를 제거하여 상대 경로로 호출함으로써 MIME 에러를 방지합니다. -->
     <script type="module" src="index.tsx"></script>
 </body>
 </html>
