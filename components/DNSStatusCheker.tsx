@@ -6,9 +6,10 @@ export const DNSStatusChecker: React.FC<{ domain: string }> = ({ domain }) => {
   const [checking, setChecking] = useState(false);
 
   const isVercelIP = (ip: string) => 
-    ip === '76.76.21.21' || ip.startsWith('76.76.21.') || ip.startsWith('66.33.');
+    ip === '76.76.21.21' || ip.startsWith('76.76.21.') || ip.startsWith('66.33.') || ip === '216.198.79.1';
 
   const handleCheck = async () => {
+    if (checking) return;
     setChecking(true);
     try {
         const result = await checkDNSStatus(domain);
