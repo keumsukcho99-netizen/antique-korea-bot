@@ -13,16 +13,25 @@ if (container) {
         </React.StrictMode>
     );
     
-    // 앱이 화면에 그려지면 로딩 화면을 즉시 치웁니다.
+    // 앱 렌더링 후 로딩 화면 제거 함수
     const hideLoader = () => {
         const loader = document.getElementById('initial-loader');
         if (loader) {
             loader.style.opacity = '0';
-            setTimeout(() => loader.remove(), 500);
+            setTimeout(() => {
+                if (loader.parentNode) {
+                    loader.remove();
+                }
+            }, 500);
         }
     };
 
-    // 창이 로드되거나, 1.5초가 지나면 무조건 로더를 숨깁니다.
-    window.addEventListener('load', hideLoader);
-    setTimeout(hideLoader, 1500);
+    // DOM이 준비되면 안전하게 로더 제거
+    if (document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        window.addEventListener('load', hideLoader);
+        // 혹시 모를 로딩 지연을 대비해 최대 2초 후 강제 제거
+        setTimeout(hideLoader, 2000);
+    }
 }
