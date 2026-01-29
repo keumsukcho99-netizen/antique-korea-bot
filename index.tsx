@@ -1,5 +1,5 @@
 
-   import React from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 
@@ -14,7 +14,7 @@ if (container) {
         </React.StrictMode>
     );
     
-    // 앱 렌더링 후 로딩 화면 제거 함수
+    // 로딩 화면을 숨기는 함수
     const hideLoader = () => {
         const loader = document.getElementById('initial-loader');
         if (loader) {
@@ -22,17 +22,17 @@ if (container) {
             setTimeout(() => {
                 if (loader.parentNode) {
                     loader.remove();
+                    console.log("Antique Korea: Entry path cleared.");
                 }
             }, 500);
         }
     };
 
-    // DOM이 준비되면 안전하게 로더 제거
+    // 브라우저 로드가 끝나거나, 최대 2초가 지나면 무조건 로딩을 치웁니다.
     if (document.readyState === 'complete') {
         hideLoader();
     } else {
         window.addEventListener('load', hideLoader);
-        // 혹시 모를 로딩 지연을 대비해 최대 2초 후 강제 제거
         setTimeout(hideLoader, 2000);
     }
 }
