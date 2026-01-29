@@ -22,17 +22,17 @@ if (container) {
             setTimeout(() => {
                 if (loader.parentNode) {
                     loader.remove();
-                    console.log("Antique Korea: Entry path cleared.");
+                    console.log("Antique Korea: Heritage Lab Door Opened.");
                 }
             }, 500);
         }
     };
 
-    // 브라우저 로드가 끝나거나, 최대 2초가 지나면 무조건 로딩을 치웁니다.
+    // 앱 로드 시점에 맞춰 안전하게 실행
     if (document.readyState === 'complete') {
         hideLoader();
     } else {
         window.addEventListener('load', hideLoader);
-        setTimeout(hideLoader, 2000);
+        setTimeout(hideLoader, 1500);
     }
 }
