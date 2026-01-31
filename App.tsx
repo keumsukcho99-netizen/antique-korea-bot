@@ -88,7 +88,7 @@ const App: React.FC = () => {
             <footer className="pt-24 opacity-40">
               <div className="flex justify-center gap-8 text-[10px] font-black tracking-[0.3em] uppercase text-slate-500">
                 <span>Director: {siteInfo.owner}</span>
-                <span>Location: antique-korea.com</span>
+                <span>Location: {siteInfo.domain}</span>
                 <span>Contact: {siteInfo.phone}</span>
               </div>
             </footer>
