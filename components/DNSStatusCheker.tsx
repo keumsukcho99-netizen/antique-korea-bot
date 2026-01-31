@@ -37,7 +37,7 @@ export const DNSStatusChecker: React.FC<{ domain: string }> = ({ domain }) => {
       <div>
         <header className="mb-8 text-center">
           <div className={`inline-block px-4 py-1 rounded-full text-[10px] font-black tracking-widest uppercase mb-4 transition-colors ${isFullyConnected ? 'bg-green-500 text-white animate-bounce' : 'bg-red-100 text-red-900'}`}>
-            {isFullyConnected ? "🎊 NETWORK ACTIVE" : "⚠️ NETWORK PENDING"}
+            {isFullyConnected ? "🎊 연결 완료" : "⚠️ 주소 설정 확인 필요"}
           </div>
           <h3 className="text-2xl font-black text-slate-900 serif-kr tracking-tight mb-2">
             도메인 연결 현황
@@ -53,7 +53,7 @@ export const DNSStatusChecker: React.FC<{ domain: string }> = ({ domain }) => {
                </div>
             </div>
             <div className="p-6 bg-green-50 rounded-2xl text-center">
-              <p className="text-green-900 font-black text-sm mb-1 serif-kr">대성공! 주소 연결 완료</p>
+              <p className="text-green-900 font-black text-sm mb-1 serif-kr">축하합니다! 대문 연결 성공</p>
               <p className="text-green-700 text-[10px] leading-relaxed">
                 이제 전 세계 어디서든 어르신의 <br/>
                 연구소에 접속할 수 있습니다.
@@ -69,14 +69,16 @@ export const DNSStatusChecker: React.FC<{ domain: string }> = ({ domain }) => {
             </div>
             <div className="p-6 bg-red-50 border-2 border-red-100 rounded-2xl">
               <p className="text-[11px] font-bold text-red-900 mb-4 flex items-center gap-2">
-                <span>📌</span> 카페24 설정 확인:
+                <span>📌</span> 카페24 관리자 화면에서:
               </p>
               <div className="bg-white p-4 rounded-xl border border-red-200 text-center mb-4">
-                <p className="text-2xl font-mono font-black text-slate-900 tracking-tighter">76.76.21.21</p>
+                <p className="text-xs text-slate-400 mb-1">A 레코드 값에 입력할 숫자</p>
+                <p className="text-2xl font-mono font-black text-red-600 tracking-tighter">76.76.21.21</p>
               </div>
               <p className="text-[10px] text-red-700 leading-relaxed font-medium">
-                카페24 관리 화면에서 이 숫자를 입력하셨나요? <br/>
-                연결될 때까지는 조금 시간이 걸립니다.
+                Vercel 이메일에 뜬 <strong>'잘못된 구성'</strong>은 <br/>
+                이 숫자가 아직 카페24에 안 적혀있다는 뜻입니다. <br/>
+                입력하셨다면 연결까지 최대 24시간이 걸릴 수 있습니다.
               </p>
             </div>
           </div>
