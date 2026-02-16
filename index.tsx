@@ -1,38 +1,36 @@
 
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 
-console.log("Antique Korea Engine Starting...");
+console.log("%c[Antique-Korea] 시스템 엔진 부팅 시작...", "color: #b8860b; font-weight: bold;");
 
-const container = document.getElementById('root');
-if (container) {
-    const root = createRoot(container);
-    root.render(
+const renderApp = () => {
+  const rootElement = document.getElementById('root');
+  if (rootElement) {
+    try {
+      const root = ReactDOM.createRoot(rootElement);
+      root.render(
         <React.StrictMode>
-            <App />
+          <App />
         </React.StrictMode>
-    );
-    
-    // 로딩 화면을 숨기는 함수
-    const hideLoader = () => {
-        const loader = document.getElementById('initial-loader');
-        if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                if (loader.parentNode) {
-                    loader.remove();
-                    console.log("Antique Korea: Entry path cleared.");
-                }
-            }, 500);
-        }
-    };
-
-    // 브라우저 로드가 끝나거나, 최대 2초가 지나면 무조건 로딩을 치웁니다.
-    if (document.readyState === 'complete') {
-        hideLoader();
-    } else {
-        window.addEventListener('load', hideLoader);
-        setTimeout(hideLoader, 2000);
+      );
+      console.log("%c[Antique-Korea] 메인 인터페이스 로드 완료", "color: #2d5a4c; font-weight: bold;");
+    } catch (error) {
+      console.error("[Antique-Korea] 렌더링 중 치명적 오류:", error);
+      rootElement.innerHTML = `
+        <div style="color: #b8860b; padding: 40px; text-align: center; font-family: serif;">
+          <h2 style="font-size: 24px;">시스템 로드 오류</h2>
+          <p style="color: #666; margin-top: 10px;">라이브러리 연결이 원활하지 않습니다. 잠시 후 새로고침(F5) 해주세요.</p>
+        </div>
+      `;
     }
+  }
+};
+
+// DOM이 준비되었는지 확인 후 실행
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderApp);
+} else {
+  renderApp();
 }
