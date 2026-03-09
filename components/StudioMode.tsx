@@ -19,7 +19,8 @@ export const StudioMode: React.FC<Props> = ({ siteInfo, setSiteInfo }) => {
   
   const getApiKeyStatus = () => {
     try {
-      const key = process.env.API_KEY || "";
+      // @ts-ignore
+      const key = (process.env.API_KEY || process.env.GEMINI_API_KEY || "");
       if (!key) return { status: 'missing', text: '열쇠가 없습니다 (등록 필요)' };
       return { status: 'active', text: `연결됨 (${key.substring(0, 4)}***)` };
     } catch (e) {
@@ -65,9 +66,9 @@ export const StudioMode: React.FC<Props> = ({ siteInfo, setSiteInfo }) => {
                 <h3 className="text-2xl font-black text-slate-900 serif-kr">API_KEY 등록법</h3>
               </div>
               <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                Vercel 설정(Settings) {"->"} Environment Variables에서 <strong>API_KEY</strong>라는 이름으로 열쇠 번호를 등록하세요.
+                Vercel 설정(Settings) &rarr; Environment Variables에서 <strong>API_KEY</strong>라는 이름으로 열쇠 번호를 등록하세요.
               </p>
-              <a href="https://aistudio.google.com/app/apikey" target="_blank" className="text-amber-900 font-bold underline">구글에서 열쇠 번호 받기 →</a>
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" className="text-amber-900 font-bold underline">구글에서 열쇠 번호 받기 &rarr;</a>
             </div>
 
             <div className="bg-white rounded-[3rem] p-10 border-4 border-red-500 shadow-2xl">
@@ -79,8 +80,8 @@ export const StudioMode: React.FC<Props> = ({ siteInfo, setSiteInfo }) => {
                 이메일에 뜬 <strong>'잘못된 구성'</strong>은 카페24 설정이 누락되었다는 뜻입니다.
               </p>
               <ul className="text-xs text-red-600 space-y-2 font-bold">
-                <li>1. 카페24 접속 {"->"} 도메인 관리</li>
-                <li>2. DNS 관리 {"->"} 'A 레코드' 선택</li>
+                <li>1. 카페24 접속 &rarr; 도메인 관리</li>
+                <li>2. DNS 관리 &rarr; 'A 레코드' 선택</li>
                 <li>3. IP 주소 칸에 <strong>76.76.21.21</strong> 입력 후 저장</li>
               </ul>
             </div>
