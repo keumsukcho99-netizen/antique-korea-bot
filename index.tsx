@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import './index.css';
 
 console.log("%c[Antique-Korea] 시스템 엔진 부팅 시작...", "color: #b8860b; font-weight: bold;");
 
